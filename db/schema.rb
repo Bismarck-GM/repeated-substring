@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_210442) do
+ActiveRecord::Schema.define(version: 2021_06_26_215730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "results", force: :cascade do |t|
+    t.string "text"
+    t.integer "length"
+    t.bigint "submission_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["submission_id"], name: "index_results_on_submission_id"
+  end
 
   create_table "submissions", force: :cascade do |t|
     t.string "text"
@@ -21,4 +30,5 @@ ActiveRecord::Schema.define(version: 2021_06_26_210442) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "results", "submissions"
 end
