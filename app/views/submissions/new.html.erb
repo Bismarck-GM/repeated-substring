@@ -1,26 +1,14 @@
-<div class="container">
-  <h4>Create a new Project</h4>
-
-  <div>
-    <%= form_with model: @submission do |f| %>
-      <div class="container w-50 p-5">
-        <div class="card shadow-sm">
-          <div class="card-header">
-            <h5>Project form</h5>
-          </div>
-
-          <div class="card-body">
-            <div class="mb-1 w-50 p-3 w-100">
-              <%= f.label :text, "Project Name", class: "form-label" %>
-              <%= f.text_field :text, class: "form-control" %>
-            </div>
-            <div class="mb-1 p-2 d-flex justify-content-between align-items-center">
-              <%= f.button "Submit Project", class: "btn-success btn" %>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    <% end %>
+<div class="container d-flex flex-column p-3">
+  <h1 class="text-light mb-3 text-center">Welcome to Biggest SubString</h1>
+  <h3 class="text-center text-white-50 mb-3">
+    Please input the string to process in the form below.
+  </h3>
+  <%= render 'form' %>
+  <div class="d-flex w-75 align-self-center justify-content-center align-items-center">
+    <h5 class="text-center align-self-center text-white-50">
+      The maximum length is 100 chars.<br>
+      Characters besides A-Z and 0-9 are forbidden.<br>
+      The app will take care of sanitizing the string before processing.
+    </h5>
   </div>
 </div>
