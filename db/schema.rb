@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_06_26_215730) do
   create_table "results", force: :cascade do |t|
     t.string "text"
     t.integer "length"
+    t.integer "from"
+    t.integer "to"
     t.bigint "submission_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
