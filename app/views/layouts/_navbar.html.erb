@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+    <div class="navbar-nav mr-auto">
+      <%= link_to "Home", root_path, class: (current_page?(root_path) ? 'nav-link active' : 'nav-link') %>
+      <% unless @session_submissions.empty? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Your Submissions
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% @session_submissions.each do |sub| %>
+              <li>
+                <%= link_to sub.text, sub.text, class: "dropdown-item" %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </div>
+  </div>
+  <div class="mx-auto order-0">
+    <h2 class="navbar-brand mx-auto">Longest Sub-String</h2>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="navbar-collapse collapse w-100 order-2 dual-collapse2 justify-content-end ">
+    <ul class="navbar-nav ml-auto">
+    <%= render_submit_new_button %>
+      <li class="nav-item pr-3">
+        <%= button_to 'Reset Session', submission_reset_session_path, { style: 'margin-right: 2rem;', class: 'btn btn-warning' } %>
+      </li>
+    </ul>
+  </div>
+</nav>

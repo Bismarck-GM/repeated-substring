@@ -1,0 +1,30 @@
+<div class="container d-flex flex-column">
+  <%= render 'form' %>
+  <div class="container d-flex flex-column p-3">
+    <h1 class="text-white-50 mb-2">Your input:</h1>
+    <div class="row gx-5 justify-content-center mb-5">
+      <div class="col col-auto position-relative text-center border border-2 border-secondary fs-1 text-white-50" style="letter-spacing: 10px;">
+        <%= @current_submission.text.upcase %>
+        <div class="position-absolute fs-6 bottom-0 end-0" style="letter-spacing: 0;">
+          <%= @current_submission.text.length %>
+        </div>
+      </div>
+    </div>
+    <h1 class="text-success mb-2">Solution:</h1>
+    <div class="row gx-5 justify-content-center mb-5">
+      <% solution_squares.each do |square| %>
+        <%= square %>
+      <% end %>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h3 class="text-dark text-center">
+          The first and longest substring without repeating a character 
+          for <strong>"<%= @current_submission.text %>"</strong> is <strong>"<%= @current_submission.result.text %>"</strong><br>
+          Its length is <strong><%= @current_submission.result.length %></strong><br>
+          And it goes from index <strong><%= @current_submission.result.from %></strong> to <strong><%= @current_submission.result.to %></strong>
+        </h3>
+      </div>
+    </div>
+  </div>
+</div>
